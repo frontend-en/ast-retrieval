@@ -1,17 +1,12 @@
 require('dotenv').config();
-const { QdrantClient } = require('@qdrant/js-client-rest');
 const { OpenAIEmbeddings } = require('@langchain/openai');
 const neo4j = require('neo4j-driver');
 const { loadIndex, searchFiles, searchCalls } = require('./lib/code-index');
+const { createClient, QDRANT_COLLECTION, QDRANT_CONFIGURED } = require('./lib/qdrant');
 
-const QDRANT_URL = process.env.QDRANT_URL || 'http://localhost:6333';
-const QDRANT_COLLECTION = process.env.QDRANT_COLLECTION || 'code';
 const NEO4J_ENABLED = process.env.NEO4J_ENABLED === 'true';
-const QDRANT_CONFIGURED = Boolean(QDRANT_URL && process.env.QDRANT_API_KEY);
 
-const qdrant = QDRANT_CONFIGURED
-    ? new QdrantClient({ url: QDRANT_URL, apiKey: process.env.QDRANT_API_KEY })
-    : null;
+const qdrant = createClient();
 const embeddings = process.env.OPENAI_API_KEY
     ? new OpenAIEmbeddings({ modelName: 'text-embedding-3-small' })
     : null;

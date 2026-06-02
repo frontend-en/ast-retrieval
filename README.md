@@ -35,7 +35,9 @@ npm i -g vercel && vercel login && vercel link && vercel deploy --prod
 
 | Method | URL |
 |--------|-----|
+| GET | `/` — dashboard (Qdrant + поиск) |
 | GET | `/api/health` |
+| GET | `/api/qdrant` — stats и точки коллекции |
 | POST | `/api/retrieve` |
 
 ```bash

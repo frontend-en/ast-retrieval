@@ -3,40 +3,213 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AST Retrieval API</title>
+  <title>AST Retrieval — Dashboard</title>
   <style>
-    :root { color-scheme: light dark; }
-    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; }
-    code { background: #eee; padding: 2px 6px; border-radius: 4px; }
-    pre { background: #f4f4f4; padding: 1rem; overflow-x: auto; border-radius: 8px; }
-    @media (prefers-color-scheme: dark) {
-      code, pre { background: #222; }
+    :root {
+      color-scheme: light dark;
+      --bg: #0f1117;
+      --card: #1a1d27;
+      --border: #2a2f3d;
+      --text: #e8eaed;
+      --muted: #9aa0a6;
+      --accent: #7c3aed;
+      --accent2: #2563eb;
+      --ok: #22c55e;
     }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f6f7fb;
+        --card: #fff;
+        --border: #e2e8f0;
+        --text: #1e293b;
+        --muted: #64748b;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 1.5rem; }
+    header { margin-bottom: 1.5rem; }
+    h1 { margin: 0 0 .25rem; font-size: 1.75rem; }
+    .sub { color: var(--muted); margin: 0; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+    }
+    .card h2 { margin: 0 0 .75rem; font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+    .stat { font-size: 2rem; font-weight: 700; }
+    .stat-label { font-size: .85rem; color: var(--muted); }
+    .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-bottom: 1.5rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .6rem 1rem; border-radius: 8px; border: none;
+      font-size: .9rem; font-weight: 600; cursor: pointer; text-decoration: none;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-secondary { background: var(--accent2); color: #fff; }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .search-row { display: flex; gap: .75rem; margin-bottom: 1rem; }
+    input[type="text"] {
+      flex: 1; padding: .75rem 1rem; border-radius: 8px;
+      border: 1px solid var(--border); background: var(--card); color: var(--text); font-size: 1rem;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+    th, td { text-align: left; padding: .6rem .75rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    th { color: var(--muted); font-weight: 600; font-size: .8rem; text-transform: uppercase; }
+    .score { color: var(--ok); font-weight: 600; }
+    .tag { display: inline-block; background: var(--border); padding: .1rem .45rem; border-radius: 4px; font-size: .75rem; margin: .1rem; }
+    .status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--ok); margin-right: .4rem; }
+    .loading { color: var(--muted); }
+    .error { color: #ef4444; }
+    #results, #points { margin-top: .5rem; }
+    .section { margin-bottom: 1.5rem; }
   </style>
 </head>
 <body>
-  <h1>AST Retrieval</h1>
-  <p>Гибридный поиск по кодовой базе: Qdrant (семантика) + Neo4j (граф вызовов).</p>
+  <div class="wrap">
+    <header>
+      <h1>AST Retrieval</h1>
+      <p class="sub">Dashboard — Qdrant Cloud + code-index.json</p>
+    </header>
 
-  <h2>Endpoints</h2>
-  <ul>
-    <li><code>GET /api/health</code> — статус сервиса и конфигурация</li>
-    <li><code>POST /api/retrieve</code> — поиск по запросу</li>
-  </ul>
+    <div class="grid" id="stats">
+      <div class="card"><h2>Index</h2><div class="stat loading">—</div><div class="stat-label">файлов в code-index.json</div></div>
+      <div class="card"><h2>Qdrant</h2><div class="stat loading">—</div><div class="stat-label">векторных точек</div></div>
+      <div class="card"><h2>Collection</h2><div class="stat loading">—</div><div class="stat-label">коллекция / размер</div></div>
+      <div class="card"><h2>Status</h2><div class="stat loading">—</div><div class="stat-label">API + OpenAI</div></div>
+    </div>
 
-  <h2>Пример запроса</h2>
-  <pre>curl -X POST https://your-app.vercel.app/api/retrieve \
-  -H "Content-Type: application/json" \
-  -d '{"query": "telegram bot authorization"}'</pre>
+    <div class="actions">
+      <a class="btn btn-primary" id="qdrant-dashboard" href="#" target="_blank" rel="noopener">↗ Qdrant Dashboard</a>
+      <a class="btn btn-secondary" id="qdrant-cloud" href="https://cloud.qdrant.io" target="_blank" rel="noopener">↗ Qdrant Cloud Console</a>
+      <a class="btn btn-outline" href="/api/health" target="_blank">JSON /api/health</a>
+      <a class="btn btn-outline" href="/api/qdrant" target="_blank">JSON /api/qdrant</a>
+    </div>
 
-  <h2>Environment variables (Vercel)</h2>
-  <ul>
-    <li><code>OPENAI_API_KEY</code></li>
-    <li><code>QDRANT_URL</code></li>
-    <li><code>QDRANT_COLLECTION</code> (optional, default: code)</li>
-    <li><code>NEO4J_URI</code></li>
-    <li><code>NEO4J_USER</code></li>
-    <li><code>NEO4J_PASSWORD</code></li>
-  </ul>
+    <div class="card section">
+      <h2 style="margin:0 0 1rem;font-size:1.1rem;text-transform:none;letter-spacing:0;color:var(--text)">Поиск</h2>
+      <div class="search-row">
+        <input type="text" id="query" placeholder="telegram bot, voice assistant..." value="telegram bot">
+        <button class="btn btn-primary" id="search-btn">Search</button>
+      </div>
+      <div id="results" class="loading">Введите запрос и нажмите Search</div>
+    </div>
+
+    <div class="card section">
+      <h2 style="margin:0 0 1rem;font-size:1.1rem;text-transform:none;letter-spacing:0;color:var(--text)">Qdrant — точки в коллекции</h2>
+      <div id="points" class="loading">Загрузка...</div>
+    </div>
+  </div>
+
+  <script>
+    const $ = (s) => document.querySelector(s);
+
+    async function loadDashboard() {
+      try {
+        const [health, qdrant] = await Promise.all([
+          fetch('/api/health').then(r => r.json()),
+          fetch('/api/qdrant?limit=20').then(r => r.json()),
+        ]);
+
+        const idx = health.config?.index?.files ?? '—';
+        const q = qdrant.collection || {};
+        const pts = q.pointsCount ?? '—';
+        const coll = q.name || health.config?.collection || 'code';
+        const vsize = q.vectorSize ? `${q.vectorSize}d` : '—';
+        const ok = health.status === 'ok';
+
+        const cards = $('#stats').children;
+        cards[0].querySelector('.stat').textContent = idx;
+        cards[0].querySelector('.stat').classList.remove('loading');
+        cards[1].querySelector('.stat').textContent = pts;
+        cards[1].querySelector('.stat').classList.remove('loading');
+        cards[2].querySelector('.stat').textContent = coll;
+        cards[2].querySelector('.stat-label').textContent = `вектор ${vsize}, ${q.distance || 'Cosine'}`;
+        cards[2].querySelector('.stat').classList.remove('loading');
+        cards[3].querySelector('.stat').innerHTML = ok ? '<span class="status-dot"></span>OK' : 'ERR';
+        cards[3].querySelector('.stat-label').textContent = health.config?.openaiConfigured ? 'OpenAI ✓' : 'OpenAI ✗';
+        cards[3].querySelector('.stat').classList.remove('loading');
+
+        if (q.dashboardUrl) $('#qdrant-dashboard').href = q.dashboardUrl;
+
+        renderPoints(qdrant.points || [], q.error);
+      } catch (e) {
+        $('#points').innerHTML = `<p class="error">${e.message}</p>`;
+      }
+    }
+
+    function renderPoints(points, error) {
+      if (error) {
+        $('#points').innerHTML = `<p class="error">Qdrant: ${error}</p>`;
+        return;
+      }
+      if (!points.length) {
+        $('#points').innerHTML = '<p class="loading">Нет точек или Qdrant не настроен</p>';
+        return;
+      }
+      const rows = points.map(p => `
+        <tr>
+          <td><code>${esc(p.file || p.id)}</code></td>
+          <td>${(p.functions || []).map(f => `<span class="tag">${esc(f)}</span>`).join('') || '—'}</td>
+          <td>${(p.classes || []).map(c => `<span class="tag">${esc(c)}</span>`).join('') || '—'}</td>
+        </tr>`).join('');
+      $('#points').innerHTML = `<table><thead><tr><th>File</th><th>Functions</th><th>Classes</th></tr></thead><tbody>${rows}</tbody></table>`;
+    }
+
+    async function search() {
+      const query = $('#query').value.trim();
+      if (!query) return;
+      $('#results').innerHTML = '<p class="loading">Поиск...</p>';
+      try {
+        const res = await fetch('/api/retrieve', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || data.message);
+
+        const vectorRows = (data.vector || []).map(v => `
+          <tr>
+            <td class="score">${(v.score ?? 0).toFixed(3)}</td>
+            <td><code>${esc(v.payload?.file || '—')}</code></td>
+            <td>${(v.payload?.functions || []).slice(0, 5).map(f => `<span class="tag">${esc(f)}</span>`).join('')}</td>
+          </tr>`).join('');
+
+        const graphRows = (data.graph || []).slice(0, 10).map(g => `
+          <tr><td><code>${esc(g.caller)}</code></td><td>→</td><td><code>${esc(g.related)}</code></td></tr>`).join('');
+
+        $('#results').innerHTML = `
+          <p><strong>vectorSource:</strong> ${esc(data.vectorSource)} · <strong>graphStatus:</strong> ${esc(data.graphStatus)}</p>
+          <h3 style="font-size:.95rem;margin:1rem 0 .5rem">Vector (${data.vector?.length || 0})</h3>
+          <table><thead><tr><th>Score</th><th>File</th><th>Functions</th></tr></thead><tbody>${vectorRows || '<tr><td colspan="3">—</td></tr>'}</tbody></table>
+          <h3 style="font-size:.95rem;margin:1rem 0 .5rem">Graph (${data.graph?.length || 0})</h3>
+          <table><thead><tr><th>Caller</th><th></th><th>Related</th></tr></thead><tbody>${graphRows || '<tr><td colspan="3">—</td></tr>'}</tbody></table>`;
+      } catch (e) {
+        $('#results').innerHTML = `<p class="error">${esc(e.message)}</p>`;
+      }
+    }
+
+    function esc(s) {
+      return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    $('#search-btn').addEventListener('click', search);
+    $('#query').addEventListener('keydown', e => { if (e.key === 'Enter') search(); });
+    loadDashboard();
+  </script>
 </body>
 </html>
