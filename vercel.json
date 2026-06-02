@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "public": true,
+  "functions": {
+    "api/**/*.js": {
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    { "source": "/health", "destination": "/api/health" },
+    { "source": "/retrieve", "destination": "/api/retrieve" }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "ast-retrieval",
+  "version": "1.0.0",
+  "description": "Hybrid code retrieval: AST indexing, Qdrant vector search, Neo4j call graph",
+  "main": "retrieval-agent.js",
+  "scripts": {
+    "index": "node indexer.js",
+    "vector": "node vector-db.js",
+    "graph": "node graph-db.js",
+    "dev:api": "vercel dev",
+    "deploy": "vercel deploy",
+    "deploy:prod": "vercel deploy --prod"
+  },
+  "keywords": ["ast", "retrieval", "qdrant", "neo4j", "code-search"],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.29.7",
+    "@babel/traverse": "^7.29.7",
+    "@langchain/openai": "^1.4.7",
+    "@qdrant/js-client-rest": "^1.18.0",
+    "chokidar": "^5.0.0",
+    "dotenv": "^17.4.2",
+    "fs-extra": "^11.3.5",
+    "glob": "^13.0.6",
+    "neo4j-driver": "^6.0.1"
+  }
+}

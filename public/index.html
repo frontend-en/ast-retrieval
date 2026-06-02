@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AST Retrieval API</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; }
+    code { background: #eee; padding: 2px 6px; border-radius: 4px; }
+    pre { background: #f4f4f4; padding: 1rem; overflow-x: auto; border-radius: 8px; }
+    @media (prefers-color-scheme: dark) {
+      code, pre { background: #222; }
+    }
+  </style>
+</head>
+<body>
+  <h1>AST Retrieval</h1>
+  <p>Гибридный поиск по кодовой базе: Qdrant (семантика) + Neo4j (граф вызовов).</p>
+
+  <h2>Endpoints</h2>
+  <ul>
+    <li><code>GET /api/health</code> — статус сервиса и конфигурация</li>
+    <li><code>POST /api/retrieve</code> — поиск по запросу</li>
+  </ul>
+
+  <h2>Пример запроса</h2>
+  <pre>curl -X POST https://your-app.vercel.app/api/retrieve \
+  -H "Content-Type: application/json" \
+  -d '{"query": "telegram bot authorization"}'</pre>
+
+  <h2>Environment variables (Vercel)</h2>
+  <ul>
+    <li><code>OPENAI_API_KEY</code></li>
+    <li><code>QDRANT_URL</code></li>
+    <li><code>QDRANT_COLLECTION</code> (optional, default: code)</li>
+    <li><code>NEO4J_URI</code></li>
+    <li><code>NEO4J_USER</code></li>
+    <li><code>NEO4J_PASSWORD</code></li>
+  </ul>
+</body>
+</html>
