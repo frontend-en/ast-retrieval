@@ -18,9 +18,6 @@ module.exports = async (req, res) => {
         return res.status(400).json({ error: 'Missing or invalid "query" in request body.' });
     }
 
-    if (!process.env.OPENAI_API_KEY) {
-        return res.status(500).json({ error: 'OPENAI_API_KEY is not configured.' });
-    }
 
     try {
         const result = await retrieve(query.trim());

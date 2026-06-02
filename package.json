@@ -11,7 +11,13 @@
     "deploy": "vercel deploy",
     "deploy:prod": "vercel deploy --prod"
   },
-  "keywords": ["ast", "retrieval", "qdrant", "neo4j", "code-search"],
+  "keywords": [
+    "ast",
+    "retrieval",
+    "qdrant",
+    "neo4j",
+    "code-search"
+  ],
   "author": "",
   "license": "ISC",
   "type": "commonjs",

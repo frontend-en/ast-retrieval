@@ -4,7 +4,10 @@ const { QdrantClient } = require('@qdrant/js-client-rest');
 const { OpenAIEmbeddings } = require('@langchain/openai');
 const fs = require('fs-extra');
 
-const qdrant = new QdrantClient({ url: process.env.QDRANT_URL || 'http://localhost:6333' });
+const qdrant = new QdrantClient({
+    url: process.env.QDRANT_URL || 'http://localhost:6333',
+    apiKey: process.env.QDRANT_API_KEY,
+});
 const COLLECTION = process.env.QDRANT_COLLECTION || 'code';
 const embeddings = new OpenAIEmbeddings({ modelName: 'text-embedding-3-small' });
 

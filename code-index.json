@@ -1,0 +1,1674 @@
+{
+  "files": {
+    "..\\..\\agents\\greym\\src\\index.ts": {
+      "classes": [],
+      "functions": [
+        "main"
+      ],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\bot.ts": {
+      "classes": [],
+      "functions": [
+        "registerBotMenuCommands",
+        "isAuthorized",
+        "formatSessionButtonLabel",
+        "formatTasksForTelegram",
+        "isTaskListRequest",
+        "formatRecentTokenTransactions",
+        "sendTopupOptions",
+        "sendRobokassaPaymentLink",
+        "replyWithInsufficientTokens",
+        "launchBot",
+        "stopBot"
+      ],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\tools\\web-search.ts": {
+      "classes": [],
+      "functions": [
+        "web_search"
+      ],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\tools\\fetch-content.ts": {
+      "classes": [],
+      "functions": [
+        "fetch_content"
+      ],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\tools\\code-search.ts": {
+      "classes": [],
+      "functions": [
+        "code_search"
+      ],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\speech\\voice-assistant.ts": {
+      "classes": [],
+      "functions": [
+        "sendNewMessage",
+        "processVoiceMessage",
+        "registerVoiceHandlers"
+      ],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\speech\\text-to-speech.ts": {
+      "classes": [],
+      "functions": [
+        "textToSpeech",
+        "textToSpeechOgg",
+        "generateVoice",
+        "cleanupAudio"
+      ],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\speech\\speech-to-text.ts": {
+      "classes": [],
+      "functions": [
+        "downloadVoiceFile",
+        "speechToText",
+        "recognizeSpeech"
+      ],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\speech\\index.ts": {
+      "classes": [],
+      "functions": [],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\scripts\\openrouter-balance.ts": {
+      "classes": [],
+      "functions": [
+        "main"
+      ],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\providers\\openrouter.ts": {
+      "classes": [],
+      "functions": [
+        "registerOpenRouterProvider",
+        "stream",
+        "streamSimple"
+      ],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\payments\\robokassa-server.ts": {
+      "classes": [],
+      "functions": [
+        "readRequestBody",
+        "paramsToRecord",
+        "parseRequestParams",
+        "sendText",
+        "sendHtml",
+        "startRobokassaServer"
+      ],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\core\\utils.ts": {
+      "classes": [],
+      "functions": [
+        "prepareArguments"
+      ],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\core\\index.ts": {
+      "classes": [],
+      "functions": [],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\core\\agent.ts": {
+      "classes": [],
+      "functions": [
+        "parsePositiveInteger",
+        "restoreSession",
+        "subscribeToEvents",
+        "processMessageText",
+        "processMessageWithUsage",
+        "clearSession",
+        "listArchivedSessions",
+        "switchSession",
+        "getMessageUsage",
+        "createEmptyAgentUsageSummary",
+        "summarizePromptUsage",
+        "createFreshAgent",
+        "getAgent",
+        "processMessage"
+      ],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\core\\tools\\index.ts": {
+      "classes": [],
+      "functions": [],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\core\\tools\\web\\web-tools.ts": {
+      "classes": [],
+      "functions": [],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\core\\tools\\task\\task-tools.ts": {
+      "classes": [],
+      "functions": [],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\core\\tools\\speech\\speech-tools.ts": {
+      "classes": [],
+      "functions": [
+        "prepareArguments"
+      ],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\core\\tools\\notification\\notification-tools.ts": {
+      "classes": [],
+      "functions": [],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\core\\tools\\file\\file-tools.ts": {
+      "classes": [],
+      "functions": [
+        "validatePath"
+      ],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\core\\services\\usage-types.ts": {
+      "classes": [],
+      "functions": [],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\core\\services\\usage-balance.ts": {
+      "classes": [],
+      "functions": [
+        "getUsageBalanceReport",
+        "formatUsageBalanceReport"
+      ],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\core\\services\\token-pricing.ts": {
+      "classes": [],
+      "functions": [
+        "parsePositiveInteger",
+        "parsePositiveNumber",
+        "findTokenPackage",
+        "getDefaultTokenPackage",
+        "getMinimumChargeForMessageType",
+        "calculateChargeTokens",
+        "estimateOpenAICostUsd",
+        "formatTokens"
+      ],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\core\\services\\token-billing.ts": {
+      "classes": [],
+      "functions": [
+        "nowIso",
+        "assertPositiveInteger",
+        "storageKey",
+        "ensureStorage",
+        "writeJsonAtomic",
+        "readJson",
+        "balancePath",
+        "transactionPath",
+        "usagePath",
+        "orderPath",
+        "getBotBillingId",
+        "ensureTokenBalance",
+        "canSpendTokens",
+        "listTokenTransactions",
+        "saveRobokassaOrder",
+        "getRobokassaOrder",
+        "creditTokens",
+        "debitTokens",
+        "recordTokenUsage",
+        "markRobokassaOrderPaid"
+      ],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\core\\services\\token-billing-types.ts": {
+      "classes": [],
+      "functions": [],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\core\\services\\todo.ts": {
+      "classes": [],
+      "functions": [
+        "parseTodoFile",
+        "readTodoFile",
+        "writeTodoFile",
+        "findTaskByDescription",
+        "updateTaskLine",
+        "deleteTaskLine"
+      ],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\core\\services\\session.ts": {
+      "classes": [],
+      "functions": [
+        "getSessionFile",
+        "getArchivedSessionFile",
+        "readSessionMessageCount",
+        "contentToText",
+        "normalizeSessionTitle",
+        "readSessionTitle",
+        "getArchiveFileById",
+        "isArchiveFile",
+        "getArchiveOwnerUserId",
+        "createSessionService"
+      ],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\core\\services\\scheduler.ts": {
+      "classes": [
+        "ReminderScheduler"
+      ],
+      "functions": [
+        "setGlobalScheduler",
+        "getGlobalScheduler"
+      ],
+      "methods": {
+        "ReminderScheduler": [
+          "constructor",
+          "setLanguage",
+          "getMessage",
+          "getDueTasks",
+          "scheduleOnce",
+          "parseTimeToMs",
+          "scheduleRecurring",
+          "cancelReminder",
+          "startDailyCheck",
+          "getActiveReminders",
+          "stopAll"
+        ]
+      }
+    },
+    "..\\..\\agents\\greym\\src\\core\\services\\robokassa.ts": {
+      "classes": [],
+      "functions": [
+        "requiredEnv",
+        "getHashAlgorithm",
+        "hash",
+        "sortedShpParams",
+        "appendShpSignatureParts",
+        "normalizeMoney",
+        "sameAmount",
+        "getPaymentUrl",
+        "buildRobokassaPaymentSignature",
+        "buildRobokassaResultSignature",
+        "nextInvId",
+        "createRobokassaOrder",
+        "verifyAndApplyRobokassaResult"
+      ],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\core\\services\\openrouter-usage.ts": {
+      "classes": [],
+      "functions": [
+        "getOpenRouterBalance",
+        "formatStartupBalance",
+        "formatMoney",
+        "formatError",
+        "toNumber",
+        "toNumberOrNull"
+      ],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\core\\services\\openai-usage.ts": {
+      "classes": [],
+      "functions": [
+        "getOpenAICostSummary",
+        "fetchCosts",
+        "formatOpenAICostSummary",
+        "formatMoney",
+        "formatError",
+        "toNumber"
+      ],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\core\\services\\index.ts": {
+      "classes": [],
+      "functions": [],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\core\\schemas\\index.ts": {
+      "classes": [],
+      "functions": [],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\core\\prompts\\system.ts": {
+      "classes": [],
+      "functions": [],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\core\\models\\constants.ts": {
+      "classes": [],
+      "functions": [
+        "parsePositiveInteger"
+      ],
+      "methods": {}
+    },
+    "..\\..\\agents\\greym\\src\\core\\models\\config.ts": {
+      "classes": [],
+      "functions": [
+        "getApiKey"
+      ],
+      "methods": {}
+    }
+  },
+  "calls": {
+    "unknown": [
+      "createLogger",
+      "combine",
+      "timestamp",
+      "printf",
+      "toUpperCase",
+      "catch",
+      "main",
+      "error",
+      "exit",
+      "config",
+      "createLogger",
+      "combine",
+      "timestamp",
+      "printf",
+      "toUpperCase",
+      "error",
+      "exit",
+      "registerVoiceHandlers",
+      "command",
+      "isAuthorized",
+      "warn",
+      "reply",
+      "info",
+      "reply",
+      "command",
+      "isAuthorized",
+      "reply",
+      "command",
+      "isAuthorized",
+      "toString",
+      "ensureTokenBalance",
+      "formatRecentTokenTransactions",
+      "getUsageBalanceReport",
+      "info",
+      "replace",
+      "reply",
+      "formatTokens",
+      "error",
+      "reply",
+      "command",
+      "isAuthorized",
+      "split",
+      "find",
+      "parseInt",
+      "sendRobokassaPaymentLink",
+      "sendTopupOptions",
+      "action",
+      "isAuthorized",
+      "answerCbQuery",
+      "answerCbQuery",
+      "sendRobokassaPaymentLink",
+      "command",
+      "isAuthorized",
+      "clearSession",
+      "info",
+      "reply",
+      "command",
+      "isAuthorized",
+      "listArchivedSessions",
+      "reply",
+      "map",
+      "formatSessionButtonLabel",
+      "reply",
+      "action",
+      "isAuthorized",
+      "answerCbQuery",
+      "switchSession",
+      "answerCbQuery",
+      "reply",
+      "info",
+      "answerCbQuery",
+      "reply",
+      "command",
+      "isAuthorized",
+      "reply",
+      "formatTasksForTelegram",
+      "error",
+      "reply",
+      "command",
+      "isAuthorized",
+      "reply",
+      "on",
+      "isAuthorized",
+      "warn",
+      "reply",
+      "info",
+      "isTaskListRequest",
+      "reply",
+      "formatTasksForTelegram",
+      "getMinimumChargeForMessageType",
+      "canSpendTokens",
+      "info",
+      "replyWithInsufficientTokens",
+      "sendChatAction",
+      "processMessageWithUsage",
+      "info",
+      "trim",
+      "warn",
+      "reply",
+      "calculateChargeTokens",
+      "canSpendTokens",
+      "info",
+      "replyWithInsufficientTokens",
+      "reply",
+      "recordTokenUsage",
+      "debitTokens",
+      "reply",
+      "formatTokens",
+      "formatTokens",
+      "error",
+      "reply",
+      "catch",
+      "error",
+      "includes",
+      "includes",
+      "catch",
+      "reply",
+      "error",
+      "catch",
+      "reply",
+      "error",
+      "catch",
+      "launchBot",
+      "error",
+      "exit",
+      "on",
+      "on",
+      "trim",
+      "replace",
+      "replace",
+      "replace",
+      "replace",
+      "replace",
+      "replace",
+      "replace",
+      "replace",
+      "replace",
+      "replace",
+      "replace",
+      "replace",
+      "substring",
+      "post",
+      "substring",
+      "substring",
+      "error",
+      "substring",
+      "createLogger",
+      "combine",
+      "timestamp",
+      "printf",
+      "toUpperCase",
+      "catch",
+      "main",
+      "String",
+      "write",
+      "now",
+      "slice",
+      "toString",
+      "random",
+      "createEmptyUsage",
+      "createEmptyUsage",
+      "String",
+      "now",
+      "create",
+      "log",
+      "join",
+      "map",
+      "log",
+      "queueMicrotask",
+      "push",
+      "isArray",
+      "join",
+      "filter",
+      "map",
+      "String",
+      "push",
+      "isArray",
+      "some",
+      "filter",
+      "join",
+      "map",
+      "isArray",
+      "join",
+      "filter",
+      "map",
+      "isArray",
+      "join",
+      "filter",
+      "map",
+      "push",
+      "log",
+      "post",
+      "log",
+      "mapOpenRouterUsage",
+      "log",
+      "now",
+      "slice",
+      "toString",
+      "random",
+      "parse",
+      "push",
+      "stringify",
+      "push",
+      "push",
+      "push",
+      "map",
+      "stringify",
+      "map",
+      "now",
+      "stringify",
+      "now",
+      "push",
+      "end",
+      "mapOpenRouterUsage",
+      "now",
+      "log",
+      "push",
+      "end",
+      "error",
+      "createErrorMessage",
+      "push",
+      "end",
+      "registerApiProvider",
+      "find",
+      "parsePositiveInteger",
+      "prepareArguments",
+      "dynamic",
+      "web_search",
+      "error",
+      "prepareArguments",
+      "dynamic",
+      "fetch_content",
+      "error",
+      "prepareArguments",
+      "dynamic",
+      "code_search",
+      "error",
+      "prepareArguments",
+      "existsSync",
+      "rf",
+      "findTaskByDescription",
+      "findTaskByDescription",
+      "includes",
+      "split",
+      "replace",
+      "wf",
+      "join",
+      "prepareArguments",
+      "existsSync",
+      "rf",
+      "findTaskByDescription",
+      "split",
+      "splice",
+      "wf",
+      "join",
+      "prepareArguments",
+      "existsSync",
+      "rf",
+      "findTaskByDescription",
+      "split",
+      "replace",
+      "wf",
+      "join",
+      "prepareArguments",
+      "readTodoFile",
+      "filter",
+      "filter",
+      "join",
+      "map",
+      "prepareArguments",
+      "textToSpeech",
+      "prepareArguments",
+      "getGlobalScheduler",
+      "now",
+      "scheduleOnce",
+      "prepareArguments",
+      "getGlobalScheduler",
+      "parseTimeToMs",
+      "toString",
+      "prepareArguments",
+      "resolve",
+      "cwd",
+      "resolve",
+      "startsWith",
+      "join",
+      "existsSync",
+      "mk",
+      "existsSync",
+      "rf",
+      "matchAll",
+      "reduce",
+      "max",
+      "parseInt",
+      "padStart",
+      "String",
+      "test",
+      "replace",
+      "replace",
+      "includes",
+      "wf",
+      "split",
+      "findIndex",
+      "toLowerCase",
+      "trim",
+      "includes",
+      "includes",
+      "slice",
+      "slice",
+      "pop",
+      "push",
+      "push",
+      "trim",
+      "join",
+      "wf",
+      "wf",
+      "match",
+      "trim",
+      "appendFileSync",
+      "wf",
+      "prepareArguments",
+      "validatePath",
+      "rf",
+      "includes",
+      "replace",
+      "wf",
+      "prepareArguments",
+      "validatePath",
+      "rf",
+      "split",
+      "split",
+      "includes",
+      "split",
+      "parseInt",
+      "parseInt",
+      "add",
+      "add",
+      "parseInt",
+      "filter",
+      "has",
+      "filter",
+      "includes",
+      "wf",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "join",
+      "resolve",
+      "cwd",
+      "resolve",
+      "cwd",
+      "join",
+      "createLogger",
+      "combine",
+      "timestamp",
+      "printf",
+      "String",
+      "normalizeSessionTitle",
+      "contentToText",
+      "find",
+      "trim",
+      "contentToText",
+      "normalizeSessionTitle",
+      "contentToText",
+      "getSessionFile",
+      "existsSync",
+      "existsSync",
+      "mkdirSync",
+      "getArchivedSessionFile",
+      "renameSync",
+      "existsSync",
+      "sort",
+      "map",
+      "filter",
+      "readdirSync",
+      "isArchiveFile",
+      "join",
+      "statSync",
+      "slice",
+      "getArchiveOwnerUserId",
+      "readSessionTitle",
+      "readSessionMessageCount",
+      "getTime",
+      "getTime",
+      "getArchiveFileById",
+      "getSessionFile",
+      "existsSync",
+      "getArchivedSessionFile",
+      "renameSync",
+      "existsSync",
+      "mkdirSync",
+      "renameSync",
+      "createSessionService",
+      "createLogger",
+      "combine",
+      "timestamp",
+      "printf",
+      "toUpperCase",
+      "set",
+      "info",
+      "trim",
+      "toLowerCase",
+      "match",
+      "parseInt",
+      "warn",
+      "schedule",
+      "error",
+      "cancelReminder",
+      "schedule",
+      "sendMessage",
+      "getMessage",
+      "info",
+      "error",
+      "set",
+      "set",
+      "info",
+      "get",
+      "stop",
+      "delete",
+      "delete",
+      "info",
+      "schedule",
+      "getDueTasks",
+      "join",
+      "map",
+      "sendMessage",
+      "getMessage",
+      "info",
+      "error",
+      "set",
+      "info",
+      "from",
+      "values",
+      "forEach",
+      "stop",
+      "clear",
+      "clear",
+      "info",
+      "localeCompare",
+      "Object",
+      "String",
+      "String",
+      "Optional",
+      "Union",
+      "Literal",
+      "Literal",
+      "Object",
+      "String",
+      "String",
+      "String",
+      "Object",
+      "String",
+      "String",
+      "Optional",
+      "Union",
+      "Literal",
+      "Literal",
+      "Object",
+      "String",
+      "Object",
+      "String",
+      "Object",
+      "String",
+      "String",
+      "Object",
+      "Optional",
+      "Union",
+      "Literal",
+      "Literal",
+      "Literal",
+      "Object",
+      "String",
+      "Number",
+      "Optional",
+      "String",
+      "Object",
+      "String",
+      "Object",
+      "String",
+      "Optional",
+      "Number",
+      "Object",
+      "String",
+      "Optional",
+      "String",
+      "Object",
+      "String",
+      "Optional",
+      "Number",
+      "Object",
+      "String",
+      "Optional",
+      "Union",
+      "Literal",
+      "Literal",
+      "Literal",
+      "Literal",
+      "Literal",
+      "Literal",
+      "Optional",
+      "Union",
+      "Literal",
+      "Literal",
+      "parsePositiveInteger",
+      "registerOpenRouterProvider"
+    ],
+    "main": [
+      "startDailyCheck",
+      "setGlobalScheduler",
+      "startRobokassaServer",
+      "info",
+      "info",
+      "info",
+      "info",
+      "getUsageBalanceReport",
+      "write",
+      "write"
+    ],
+    "registerBotMenuCommands": [
+      "Number",
+      "isFinite",
+      "setMyCommands",
+      "deleteMyCommands",
+      "setChatMenuButton",
+      "info",
+      "setMyCommands",
+      "setChatMenuButton",
+      "info",
+      "warn"
+    ],
+    "formatSessionButtonLabel": [
+      "toLocaleDateString",
+      "slice"
+    ],
+    "formatTasksForTelegram": [
+      "readTodoFile",
+      "join",
+      "map"
+    ],
+    "isTaskListRequest": [
+      "toLowerCase",
+      "trim",
+      "includes",
+      "replace",
+      "test",
+      "test"
+    ],
+    "formatRecentTokenTransactions": [
+      "listTokenTransactions",
+      "join",
+      "map",
+      "toLocaleString",
+      "formatTokens"
+    ],
+    "sendTopupOptions": [
+      "reply",
+      "map"
+    ],
+    "sendRobokassaPaymentLink": [
+      "createRobokassaOrder",
+      "reply",
+      "formatTokens"
+    ],
+    "replyWithInsufficientTokens": [
+      "getDefaultTokenPackage",
+      "createRobokassaOrder",
+      "reply",
+      "formatTokens"
+    ],
+    "launchBot": [
+      "registerBotMenuCommands",
+      "launch",
+      "info"
+    ],
+    "stopBot": [
+      "info",
+      "stop",
+      "exit"
+    ],
+    "web_search": [
+      "post",
+      "push",
+      "push",
+      "error",
+      "push"
+    ],
+    "fetch_content": [
+      "includes",
+      "get",
+      "extractTextFromHtml",
+      "summarizeWithAI",
+      "isAxiosError"
+    ],
+    "code_search": [
+      "post",
+      "error"
+    ],
+    "sendNewMessage": [
+      "sendMessage"
+    ],
+    "processVoiceMessage": [
+      "warn",
+      "reply",
+      "getMinimumChargeForMessageType",
+      "canSpendTokens",
+      "info",
+      "getDefaultTokenPackage",
+      "createRobokassaOrder",
+      "sendNewMessage",
+      "formatTokens",
+      "Number",
+      "error",
+      "reply",
+      "info",
+      "info",
+      "recognizeSpeech",
+      "error",
+      "sendNewMessage",
+      "info",
+      "sendNewMessage",
+      "info",
+      "sendChatAction",
+      "processMessageWithUsage",
+      "trim",
+      "warn",
+      "sendNewMessage",
+      "info",
+      "estimateOpenAICostUsd",
+      "calculateChargeTokens",
+      "canSpendTokens",
+      "info",
+      "getDefaultTokenPackage",
+      "createRobokassaOrder",
+      "sendNewMessage",
+      "formatTokens",
+      "sendNewMessage",
+      "info",
+      "generateVoice",
+      "estimateOpenAICostUsd",
+      "calculateChargeTokens",
+      "error",
+      "sendNewMessage",
+      "recordTokenUsage",
+      "debitTokens",
+      "sendNewMessage",
+      "formatTokens",
+      "formatTokens",
+      "info",
+      "sendVoice",
+      "info",
+      "recordTokenUsage",
+      "debitTokens",
+      "sendNewMessage",
+      "formatTokens",
+      "formatTokens",
+      "cleanupAudio",
+      "error",
+      "sendNewMessage",
+      "info"
+    ],
+    "registerVoiceHandlers": [
+      "on",
+      "sendChatAction",
+      "processVoiceMessage",
+      "on",
+      "reply"
+    ],
+    "textToSpeech": [
+      "existsSync",
+      "then",
+      "dynamic",
+      "mkdirSync",
+      "now",
+      "join",
+      "post",
+      "createWriteStream",
+      "pipeline",
+      "error"
+    ],
+    "textToSpeechOgg": [
+      "existsSync",
+      "then",
+      "dynamic",
+      "mkdirSync",
+      "textToSpeech",
+      "dynamic",
+      "dynamic",
+      "promisify",
+      "replace",
+      "execAsync",
+      "existsSync",
+      "unlinkSync",
+      "error"
+    ],
+    "generateVoice": [
+      "textToSpeechOgg"
+    ],
+    "cleanupAudio": [
+      "existsSync",
+      "unlinkSync"
+    ],
+    "downloadVoiceFile": [
+      "existsSync",
+      "then",
+      "dynamic",
+      "mkdirSync",
+      "now",
+      "join",
+      "get",
+      "get",
+      "createWriteStream",
+      "pipeline"
+    ],
+    "speechToText": [
+      "append",
+      "createReadStream",
+      "append",
+      "append",
+      "append",
+      "post",
+      "getHeaders",
+      "trim",
+      "error"
+    ],
+    "recognizeSpeech": [
+      "downloadVoiceFile",
+      "speechToText",
+      "existsSync",
+      "unlinkSync"
+    ],
+    "registerOpenRouterProvider": [
+      "randomId",
+      "map"
+    ],
+    "stream": [
+      "createAssistantMessageEventStream",
+      "find"
+    ],
+    "streamSimple": [
+      "log",
+      "stream"
+    ],
+    "readRequestBody": [
+      "push",
+      "isBuffer",
+      "from",
+      "toString",
+      "concat"
+    ],
+    "paramsToRecord": [
+      "entries"
+    ],
+    "parseRequestParams": [
+      "paramsToRecord",
+      "readRequestBody",
+      "paramsToRecord"
+    ],
+    "sendText": [
+      "writeHead",
+      "end"
+    ],
+    "sendHtml": [
+      "writeHead",
+      "end"
+    ],
+    "startRobokassaServer": [
+      "parseInt",
+      "createServer",
+      "parseRequestParams",
+      "verifyAndApplyRobokassaResult",
+      "sendMessage",
+      "sendText",
+      "sendHtml",
+      "sendHtml",
+      "sendText",
+      "String",
+      "error",
+      "sendText",
+      "listen",
+      "log"
+    ],
+    "prepareArguments": [
+      "parse",
+      "parse"
+    ],
+    "parsePositiveInteger": [
+      "parseInt",
+      "isFinite",
+      "parseInt",
+      "isFinite",
+      "parseInt",
+      "isFinite"
+    ],
+    "restoreSession": [
+      "load",
+      "forEach",
+      "slice",
+      "push"
+    ],
+    "subscribeToEvents": [
+      "subscribe",
+      "slice",
+      "save"
+    ],
+    "processMessageText": [
+      "processMessageWithUsage"
+    ],
+    "processMessageWithUsage": [
+      "processMessage",
+      "String",
+      "startsWith",
+      "startsWith",
+      "createEmptyAgentUsageSummary"
+    ],
+    "clearSession": [
+      "delete",
+      "clear",
+      "log",
+      "toFixed"
+    ],
+    "listArchivedSessions": [
+      "listArchived",
+      "reduce",
+      "getMessageUsage"
+    ],
+    "switchSession": [
+      "switchToArchived",
+      "delete",
+      "filter"
+    ],
+    "getMessageUsage": [
+      "Number",
+      "Number",
+      "Number",
+      "Number",
+      "Number",
+      "Number"
+    ],
+    "summarizePromptUsage": [
+      "slice",
+      "filter"
+    ],
+    "createFreshAgent": [
+      "getModel",
+      "log"
+    ],
+    "getAgent": [
+      "has",
+      "createFreshAgent",
+      "restoreSession",
+      "subscribeToEvents",
+      "set",
+      "get"
+    ],
+    "processMessage": [
+      "log",
+      "getAgent",
+      "log",
+      "prompt",
+      "log",
+      "summarizePromptUsage",
+      "isArray",
+      "String",
+      "error"
+    ],
+    "validatePath": [
+      "resolve",
+      "cwd",
+      "resolve",
+      "startsWith"
+    ],
+    "getUsageBalanceReport": [
+      "all",
+      "getOpenRouterBalance",
+      "getOpenAICostSummary",
+      "formatUsageBalanceReport"
+    ],
+    "formatUsageBalanceReport": [
+      "formatStartupBalance",
+      "formatOpenAICostSummary"
+    ],
+    "parsePositiveNumber": [
+      "parseFloat",
+      "isFinite"
+    ],
+    "findTokenPackage": [
+      "find"
+    ],
+    "getMinimumChargeForMessageType": [
+      "parsePositiveInteger",
+      "parsePositiveInteger"
+    ],
+    "calculateChargeTokens": [
+      "parsePositiveNumber",
+      "parsePositiveNumber",
+      "max",
+      "max",
+      "ceil",
+      "max",
+      "getMinimumChargeForMessageType"
+    ],
+    "estimateOpenAICostUsd": [
+      "parsePositiveNumber",
+      "parsePositiveNumber",
+      "max",
+      "max"
+    ],
+    "formatTokens": [
+      "toLocaleString",
+      "trunc"
+    ],
+    "nowIso": [
+      "toISOString"
+    ],
+    "assertPositiveInteger": [
+      "isInteger"
+    ],
+    "storageKey": [
+      "replace"
+    ],
+    "ensureStorage": [
+      "all",
+      "mkdir",
+      "mkdir",
+      "mkdir",
+      "mkdir"
+    ],
+    "writeJsonAtomic": [
+      "mkdir",
+      "dirname",
+      "now",
+      "writeFile",
+      "stringify",
+      "rename"
+    ],
+    "readJson": [
+      "existsSync",
+      "parse",
+      "readFile"
+    ],
+    "balancePath": [
+      "join",
+      "storageKey"
+    ],
+    "transactionPath": [
+      "join"
+    ],
+    "usagePath": [
+      "join"
+    ],
+    "orderPath": [
+      "join"
+    ],
+    "ensureTokenBalance": [
+      "getBotBillingId",
+      "ensureStorage",
+      "balancePath",
+      "readJson",
+      "nowIso",
+      "writeJsonAtomic",
+      "localeCompare"
+    ],
+    "canSpendTokens": [
+      "getBotBillingId",
+      "ensureTokenBalance",
+      "slice",
+      "sort",
+      "filter"
+    ],
+    "listTokenTransactions": [
+      "getBotBillingId",
+      "ensureStorage",
+      "readdir",
+      "all",
+      "map",
+      "filter",
+      "endsWith",
+      "readJson",
+      "join"
+    ],
+    "saveRobokassaOrder": [
+      "ensureStorage",
+      "writeJsonAtomic",
+      "orderPath"
+    ],
+    "getRobokassaOrder": [
+      "ensureStorage",
+      "readJson",
+      "orderPath"
+    ],
+    "creditTokens": [
+      "getBotBillingId",
+      "assertPositiveInteger",
+      "ensureTokenBalance",
+      "nowIso",
+      "randomUUID",
+      "nowIso",
+      "writeJsonAtomic",
+      "balancePath",
+      "writeJsonAtomic",
+      "transactionPath",
+      "log"
+    ],
+    "debitTokens": [
+      "getBotBillingId",
+      "assertPositiveInteger",
+      "ensureTokenBalance",
+      "nowIso",
+      "randomUUID",
+      "nowIso",
+      "writeJsonAtomic",
+      "balancePath",
+      "writeJsonAtomic",
+      "transactionPath",
+      "log"
+    ],
+    "recordTokenUsage": [
+      "getBotBillingId",
+      "assertPositiveInteger",
+      "randomUUID",
+      "max",
+      "max",
+      "nowIso",
+      "ensureStorage",
+      "writeJsonAtomic",
+      "usagePath"
+    ],
+    "markRobokassaOrderPaid": [
+      "getRobokassaOrder",
+      "ensureTokenBalance",
+      "nowIso",
+      "saveRobokassaOrder",
+      "creditTokens",
+      "String"
+    ],
+    "parseTodoFile": [
+      "split",
+      "trim",
+      "startsWith",
+      "match",
+      "push"
+    ],
+    "readTodoFile": [
+      "existsSync",
+      "rf",
+      "parseTodoFile"
+    ],
+    "writeTodoFile": [
+      "rf",
+      "split",
+      "trim",
+      "startsWith",
+      "match",
+      "find",
+      "wf",
+      "join"
+    ],
+    "findTaskByDescription": [
+      "split",
+      "toLowerCase",
+      "trim",
+      "startsWith",
+      "startsWith",
+      "includes",
+      "toLowerCase"
+    ],
+    "deleteTaskLine": [
+      "splice"
+    ],
+    "getSessionFile": [
+      "join"
+    ],
+    "getArchivedSessionFile": [
+      "replace",
+      "toISOString",
+      "join"
+    ],
+    "readSessionMessageCount": [
+      "readFileSync",
+      "parse",
+      "isArray"
+    ],
+    "contentToText": [
+      "isArray",
+      "join",
+      "map",
+      "String"
+    ],
+    "normalizeSessionTitle": [
+      "trim",
+      "replace",
+      "slice"
+    ],
+    "readSessionTitle": [
+      "readFileSync",
+      "parse",
+      "isArray",
+      "find",
+      "trim",
+      "contentToText"
+    ],
+    "getArchiveFileById": [
+      "basename",
+      "join",
+      "existsSync"
+    ],
+    "isArchiveFile": [
+      "basename",
+      "endsWith"
+    ],
+    "getArchiveOwnerUserId": [
+      "slice",
+      "split"
+    ],
+    "createSessionService": [
+      "getSessionFile",
+      "existsSync",
+      "readFileSync",
+      "parse",
+      "warn",
+      "existsSync",
+      "mkdirSync",
+      "getSessionFile",
+      "writeFileSync",
+      "stringify"
+    ],
+    "getGlobalScheduler": [
+      "entries",
+      "replace",
+      "readTodoFile",
+      "split",
+      "toISOString",
+      "filter"
+    ],
+    "setGlobalScheduler": [
+      "now",
+      "setTimeout",
+      "sendMessage",
+      "getMessage",
+      "info",
+      "error"
+    ],
+    "getHashAlgorithm": [
+      "toLowerCase"
+    ],
+    "hash": [
+      "digest",
+      "update",
+      "createHash",
+      "getHashAlgorithm"
+    ],
+    "sortedShpParams": [
+      "sort",
+      "filter",
+      "entries",
+      "startsWith"
+    ],
+    "appendShpSignatureParts": [
+      "reduce",
+      "sortedShpParams"
+    ],
+    "normalizeMoney": [
+      "parseFloat",
+      "replace",
+      "isFinite",
+      "toFixed"
+    ],
+    "sameAmount": [
+      "normalizeMoney",
+      "normalizeMoney"
+    ],
+    "buildRobokassaPaymentSignature": [
+      "hash",
+      "appendShpSignatureParts"
+    ],
+    "buildRobokassaResultSignature": [
+      "hash",
+      "appendShpSignatureParts"
+    ],
+    "nextInvId": [
+      "Number",
+      "slice",
+      "now",
+      "randomInt"
+    ],
+    "createRobokassaOrder": [
+      "getBotBillingId",
+      "findTokenPackage",
+      "requiredEnv",
+      "requiredEnv",
+      "nextInvId",
+      "normalizeMoney",
+      "buildRobokassaPaymentSignature",
+      "String",
+      "set",
+      "getPaymentUrl",
+      "toString",
+      "toISOString",
+      "saveRobokassaOrder"
+    ],
+    "verifyAndApplyRobokassaResult": [
+      "parseInt",
+      "isSafeInteger",
+      "getRobokassaOrder",
+      "fromEntries",
+      "sortedShpParams",
+      "buildRobokassaResultSignature",
+      "requiredEnv",
+      "toLowerCase",
+      "toLowerCase",
+      "sameAmount",
+      "markRobokassaOrderPaid"
+    ],
+    "getOpenRouterBalance": [
+      "push",
+      "get",
+      "toNumberOrNull",
+      "toNumberOrNull",
+      "toNumber",
+      "toNumber",
+      "toNumber",
+      "toNumber",
+      "push",
+      "formatError",
+      "get",
+      "toNumber",
+      "toNumber",
+      "push",
+      "formatError"
+    ],
+    "formatStartupBalance": [
+      "push",
+      "formatMoney",
+      "push",
+      "push",
+      "join",
+      "join"
+    ],
+    "formatMoney": [
+      "toNumber",
+      "toFixed",
+      "toNumber",
+      "toLowerCase",
+      "toFixed",
+      "toFixed",
+      "toUpperCase"
+    ],
+    "formatError": [
+      "isAxiosError",
+      "stringify",
+      "join",
+      "filter",
+      "String",
+      "isAxiosError",
+      "stringify",
+      "join",
+      "filter",
+      "String"
+    ],
+    "toNumber": [
+      "isFinite",
+      "Number",
+      "isFinite",
+      "isFinite",
+      "Number",
+      "isFinite"
+    ],
+    "toNumberOrNull": [
+      "isFinite",
+      "Number",
+      "isFinite"
+    ],
+    "getOpenAICostSummary": [
+      "UTC",
+      "getUTCFullYear",
+      "getUTCMonth",
+      "UTC",
+      "getUTCFullYear",
+      "getUTCMonth",
+      "getUTCDate",
+      "toISOString",
+      "toISOString",
+      "push",
+      "fetchCosts",
+      "push",
+      "formatError",
+      "fetchCosts",
+      "push",
+      "formatError"
+    ],
+    "fetchCosts": [
+      "get",
+      "floor",
+      "getTime",
+      "floor",
+      "getTime",
+      "toNumber",
+      "floor",
+      "getTime",
+      "get",
+      "set",
+      "sort",
+      "from",
+      "values"
+    ],
+    "formatOpenAICostSummary": [
+      "formatMoney",
+      "slice",
+      "formatMoney",
+      "slice",
+      "join"
+    ]
+  }
+}

@@ -9,8 +9,8 @@ node_modules/
 # Vercel
 .vercel/
 
-# Generated index (rebuild with indexer.js)
-code-index.json
+# Demo index — tracked in git intentionally (prod data source for demo/fallback)
+# code-index.json
 
 # Logs
 *.log
